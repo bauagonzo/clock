@@ -1,0 +1,5 @@
+FROM busybox:latest
+RUN addgroup --gid 2000 dell ; adduser -D -u 1000 flo dell
+USER 1000:2000
+ENV LOG /dev/null
+CMD while true; do echo "$(id): $(date)" | tee -a $LOG && sleep 1;done

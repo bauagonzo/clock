@@ -1,0 +1,3 @@
+FROM busybox:latest
+ENV LOG /dev/null
+CMD while true; do echo "$(hostname): $(date)" | tee -a $LOG && sleep 1;done
