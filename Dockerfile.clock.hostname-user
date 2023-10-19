@@ -1,3 +1,5 @@
 FROM busybox:latest
+RUN addgroup --gid 2000 dell ; adduser -D -u 1000 flo dell
+USER 1000:2000
 ENV LOG /dev/null
 CMD echo 'start!' >> $LOG ; while true; do echo "host: $(hostname) $(id): $(date)" | tee -a $LOG && sleep 1;done
